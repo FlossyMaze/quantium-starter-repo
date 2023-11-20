@@ -15,3 +15,5 @@ df['sales'] = df['quantity']*df['price'].apply(lambda x: float(x.replace('$', ''
 # Final File containing 'region', 'date', 'sales'
 task_2_final = df[['sales', 'date', 'region']]
 # print(task_2_final)
+
+task_2_final.to_csv('task2', index=False)
