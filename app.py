@@ -1,4 +1,4 @@
-from dash import Dash
+from dash import Dash, html, dcc
 import plotly.express as px
 import pandas as pd
 
@@ -18,8 +18,13 @@ fig = px.line(df, x="date", y="sales",
               labels={'sales': 'Sales', 'region': 'Region', 'date': 'Date'},
               line_shape='linear')
 
-fig.show()
-
+# app layout
+app.layout = html.Div(children=[html.H1(children="Soul Foods's Pink Morsel Visualizer"),
+                                dcc.Graph(id='line-graph',
+                                          figure=fig
+                                          )
+                                ]
+                      )
 
 if __name__ == '__main__':
     app.run_server(debug=True)
